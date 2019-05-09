@@ -1,6 +1,3 @@
-/*
-Repeated values in an array not handled yet.
-*/
 module.exports = function () {
     return {
         VALUE_CREATED: 'created',
