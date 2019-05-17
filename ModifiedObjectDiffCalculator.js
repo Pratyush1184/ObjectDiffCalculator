@@ -52,7 +52,6 @@ module.exports={
         var type1=Object.prototype.toString.call(obj1);
         var type2=Object.prototype.toString.call(obj2);
         if(type1!==type2){
-            console.log("f5");
             return false;
         }
         if(['[object Array]','[object Object]'].indexOf(type1)<0 && ['[object Array]','[object Object]'].indexOf(type2)<0 ){
@@ -62,13 +61,11 @@ module.exports={
             if(obj1.length===obj2.length){
                 for(var i=0;i<obj1.length;i++){
                     if(!this.isEqual(obj1[i],obj2[i])){
-                        console.log("f4");
                         return false;
                     }
                 }
                 return true;
             }
-            console.log("f3");
             return false;
         }
         else if(type1===type2 && type1==='[object Object]'){
@@ -76,14 +73,12 @@ module.exports={
                 for(var key in obj1){
                     if(obj1.hasOwnProperty(key)){
                         if(!this.isEqual(obj1[key],obj2[key])){
-                            console.log("f2");
                             return false;
                         }
                     }
                 }
                 return true;
             }
-            console.log("f1");
             return false;
         }
     }
