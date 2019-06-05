@@ -2,19 +2,13 @@
 module.exports={
     deltaObj:{},
     ObjectDiffCalculator: function(obj1, obj2, deltaObj){
-        if(this.isEqual(obj1,obj2)){
-            deltaObj.deltaChangeStatus="unchanged";
-            deltaObj.deltaChangeValue=obj1;
-        }
-        else{
+        if(!this.isEqual(obj1,obj2)){
             for(var key in obj1){
                 if(obj2.hasOwnProperty(key)){
                     var type1=Object.prototype.toString.call(obj1[key]);
                     var type2=Object.prototype.toString.call(obj2[key]);            
                     if(this.isEqual(obj1[key],obj2[key])){
-                        deltaObj[key]={};
-                        deltaObj[key]["deltaChangeStatus"]="unchanged";
-                        deltaObj[key]["deltaChangeValue"]=obj1[key];
+                        delete deltaObj[key];
                     }
                     else{
                         if(['[object Array]','[object Object]'].indexOf(type1)<0 && ['[object Array]','[object Object]'].indexOf(type2)<0 ){
